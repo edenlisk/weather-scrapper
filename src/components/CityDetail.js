@@ -80,7 +80,6 @@ const CityDetail = () => {
     return d.toString().split(' ')[0];
   };
 
-  // TODO : REMOVE HARD CODED DATA
   return (
     <div className="container d-flex justify-content-center px-0">
       <div className="container text-white px-0">
