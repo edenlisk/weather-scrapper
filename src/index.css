@@ -34,7 +34,7 @@ body {
 }
 
 .homepage-top-left {
-  /*height: 20rem;*/
+  /* height: 20rem; */
   background-image: url(./assets/rain.png);
   background-size: 30% 80%;
   background-repeat: no-repeat;
@@ -73,5 +73,3 @@ body {
 .card:nth-child(odd) {
   background: rgba(67, 105, 178, 0.9);
 }
-
-
