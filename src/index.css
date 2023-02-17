@@ -34,7 +34,6 @@ body {
 }
 
 .homepage-top-left {
-  /* height: 20rem; */
   background-image: url(./assets/rain.png);
   background-size: 30% 80%;
   background-repeat: no-repeat;

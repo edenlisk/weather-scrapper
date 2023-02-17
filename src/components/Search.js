@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-// import HomePage from './HomePage';
 import CitiesList from './CitiesList';
 
 const Search = (props) => {
@@ -11,7 +10,6 @@ const Search = (props) => {
   const handleSearch = (e) => {
     setSearchField(e.target.value);
   };
-  //       {/*<div><HomePage /></div>*/}
   const home = () => (
     <div className="container px-0">
       <div className="container text-white stats d-flex justify-content-center gap-5 align-items-center">
