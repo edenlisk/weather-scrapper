@@ -47,7 +47,7 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-No Live demo yet.
+Click [here](https://weather-scrapper.onrender.com/) to view live demo for the project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
