@@ -1,20 +1,20 @@
-import { createAction, createReducer, createAsyncThunk } from '@reduxjs/toolkit';
+import { createAction, createAsyncThunk, createReducer } from '@reduxjs/toolkit';
 import fetchSingleCity from '../services/connectAPI';
 
 const SELECT_CITY = 'SELECT_CITY';
 const FETCH_CITY_WEATHERS = 'FETCH_CITY_WEATHERS';
 
-const cities = ['Moscow', 'London', 'Paris', 'Cairo', 'Dubai', 'Kigali', 'Madrid', 'New York', 'Roma'];
+const cities = ['Moscow', 'London', 'Paris', 'Cairo', 'Dubai', 'Kigali', 'Madrid', 'New York', 'Roma', 'Nairobi', 'Dodoma', 'Ottawa'];
 
 export const retrieveWeather = createAsyncThunk(FETCH_CITY_WEATHERS, async (obj, thunkAPI) => {
   const currentState = thunkAPI.getState();
   if (currentState.weather.length === 0) {
-    const weatherData = [];
+    const promises = [];
     for (let i = 0; i < cities.length; i += 1) {
-      // eslint-disable-next-line
-            const newData = await fetchSingleCity(cities[i]);
-      weatherData.push(newData);
+      const newData = fetchSingleCity(cities[i]);
+      promises.push(newData);
     }
+    const weatherData = await Promise.all(promises);
     return weatherData;
   }
   return currentState.weather;

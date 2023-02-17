@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 import CitiesList from './CitiesList';
 
 const Search = (props) => {
-  const [searchField, setSearchField] = useState('');
+  const [search, setSearchField] = useState('');
   const { weatherInfo } = props;
-  // eslint-disable-next-line
-  const filteredWeatherInfo = weatherInfo.filter((city) => city.address.toLowerCase().includes(searchField.toLowerCase()));
+  const filtr = weatherInfo.filter((ct) => ct.address.toLowerCase().includes(search.toLowerCase()));
   const handleSearch = (e) => {
     setSearchField(e.target.value);
   };
@@ -16,7 +15,7 @@ const Search = (props) => {
         <span>UPDATES BY MAJOR CITIES</span>
         <input onChange={handleSearch} className="search-field rounded-2" type="text" placeholder="Type your city" />
       </div>
-      <div className="cities-cards d-flex justify-content-center"><CitiesList weatherInfo={filteredWeatherInfo} /></div>
+      <div className="cities-cards d-flex justify-content-center"><CitiesList weatherInfo={filtr} /></div>
     </div>
   );
 

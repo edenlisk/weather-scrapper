@@ -5,33 +5,32 @@ import { useSelector } from 'react-redux';
 
 const CityDetail = () => {
   const navigate = useNavigate();
-  const selected = useSelector((state) => state.selectedCity);
-  // eslint-disable-next-line
-  const [selectedCityInfo] = useSelector((state) => state.weather.filter((item) => item.address === selected));
+  const ct = useSelector((state) => state.selectedCity);
+  const [selectedCity] = useSelector((state) => state.weather.filter((it) => it.address === ct));
   const renderSelectedCityInfo = () => {
-    if (selectedCityInfo) {
+    if (selectedCity) {
       return (
         <ul className="list-group px-0 container">
           <li className="list-group-item text-white d-flex justify-content-between">
             <span>City Name:</span>
-            <span>{selectedCityInfo.address}</span>
+            <span>{selectedCity.address}</span>
           </li>
           <li className="list-group-item text-white d-flex justify-content-between">
             <span>Timezone:</span>
-            <span>{selectedCityInfo.timezone}</span>
+            <span>{selectedCity.timezone}</span>
           </li>
           <li className="list-group-item text-white d-flex justify-content-between">
             <span>Address:</span>
-            <span>{selectedCityInfo.resolvedAddress}</span>
+            <span>{selectedCity.resolvedAddress}</span>
           </li>
           <li className="list-group-item text-white d-flex justify-content-between">
             <span>Cloud Cover:</span>
-            <span>{selectedCityInfo.days[0].cloudcover}</span>
+            <span>{selectedCity.days[0].cloudcover}</span>
           </li>
           <li className="list-group-item text-white d-flex justify-content-between">
             <span>Wind Speed:</span>
             <span>
-              {selectedCityInfo.days[0].windspeed}
+              {selectedCity.days[0].windspeed}
               {' '}
               kmph
             </span>
@@ -39,7 +38,7 @@ const CityDetail = () => {
           <li className="list-group-item text-white d-flex justify-content-between">
             <span>Temperature:</span>
             <span>
-              {selectedCityInfo.days[0].temp}
+              {selectedCity.days[0].temp}
               °C
               {' '}
             </span>
@@ -47,20 +46,20 @@ const CityDetail = () => {
           <li className="list-group-item text-white d-flex justify-content-between">
             <span>Min Temperature:</span>
             <span>
-              {selectedCityInfo.days[0].tempmin}
+              {selectedCity.days[0].tempmin}
               °C
             </span>
           </li>
           <li className="list-group-item text-white d-flex justify-content-between">
             <span>Max Temperature:</span>
             <span>
-              {selectedCityInfo.days[0].tempmax}
+              {selectedCity.days[0].tempmax}
               °C
             </span>
           </li>
           <li className="list-group-item text-white d-flex justify-content-between">
             <span>Weather Description:</span>
-            <span>{selectedCityInfo.days[0].description}</span>
+            <span>{selectedCity.days[0].description}</span>
           </li>
         </ul>
       );
@@ -76,7 +75,7 @@ const CityDetail = () => {
   };
 
   const getDay = () => {
-    const d = new Date(selectedCityInfo.days[0].datetime);
+    const d = new Date(selectedCity.days[0].datetime);
     return d.toString().split(' ')[0];
   };
 
@@ -88,12 +87,12 @@ const CityDetail = () => {
             <IoMdArrowRoundBack onClick={handleClick} />
           </div>
           <div>
-            <span className="fs-3">{selectedCityInfo ? getDay() : ''}</span>
+            <span className="fs-3">{selectedCity ? getDay() : ''}</span>
           </div>
           <div className="text-center">
-            <span>{selectedCityInfo ? selectedCityInfo.address : null}</span>
+            <span>{selectedCity ? selectedCity.address : null}</span>
             <br />
-            <span>{selectedCityInfo ? `${selectedCityInfo.days[0].temp}°C` : null}</span>
+            <span>{selectedCity ? `${selectedCity.days[0].temp}°C` : null}</span>
           </div>
         </div>
         <div className="">
